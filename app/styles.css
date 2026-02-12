@@ -1,0 +1,380 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	.scrollbar-hide {
+		/* IE and Edge */
+		-ms-overflow-style: none !important;
+		/* Firefox */
+		scrollbar-width: none !important;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		/* Safari and Chrome */
+		display: none;
+		width: 0 !important;
+	}
+
+	.scrollbar-default {
+		/* IE and Edge */
+		-ms-overflow-style: "auto";
+		/* Firefox */
+		scrollbar-width: "auto";
+	}
+
+	.scrollbar-default::-webkit-scrollbar {
+		/* Safari and Chrome */
+		display: "block";
+		width: "auto";
+	}
+	.blazer-extras {
+		--slide-width: calc(
+			(90% - (var(--slides-to-show) - 1) * var(--slide-gap)) /
+				var(--slides-to-show)
+		) !important;
+	}
+}
+
+.input-style {
+	@apply rounded-lg border !border-[#E8E8E8] border-opacity-20 !bg-[#FCFCFD1A];
+}
+.input-style-2 {
+	@apply rounded-lg border !border-[#FF98984D] border-opacity-20 !bg-[#262020];
+}
+
+.container_style {
+	@apply border-2 border-white/20 bg-ink-darkest/40 from-white via-transparent to-white backdrop-blur-sm;
+}
+
+.primary_border-y {
+	@apply !border-b !border-t border-red-300 border-opacity-30;
+}
+
+.primary_border-x {
+	@apply !border-l !border-r border-red-300 border-opacity-30;
+}
+
+.checkbox_style {
+	@apply h-6 w-6 !rounded-full border-line bg-white text-white data-[state=checked]:!bg-green-check;
+}
+
+body,
+html,
+* {
+	@apply scrollbar-hide;
+}
+
+body,
+html {
+	-webkit-overflow-scrolling: touch !important;
+	height: -webkit-fill-available !important;
+	scroll-behavior: smooth;
+	width: 100%;
+	height: 100%;
+}
+
+/* IOS fix for - 100vh - Seeing white background at the bottom when scrolling */
+body {
+	background-color: #0e0707;
+	/* color: #9fafb5; */
+}
+
+.smooth {
+	-webkit-overflow-scrolling: touch !important;
+	scroll-behavior: smooth;
+}
+
+label {
+	@apply !text-white;
+}
+
+input {
+	outline: none;
+}
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: #9fafb5;
+	transition: background-color 5000s ease-in-out 0s;
+	box-shadow: inset 0 0 20px 20px transparent !important;
+}
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select:focus,
+textarea {
+	font-size: 16px;
+}
+
+.PopoverContent {
+	width: var(--radix-popover-trigger-width);
+	max-height: var(--radix-popover-content-available-height);
+}
+
+.recharts-layer > text {
+	@media screen and (max-width: 640px) {
+		font-size: 10px;
+	}
+}
+
+.otp_style {
+	height: 40px;
+	width: 40px;
+	@media screen and (min-width: 640px) {
+		width: 52px;
+		height: 52px;
+	}
+}
+.chat-bubble {
+	position: relative;
+	opacity: 0; /* Start invisible */
+	transform: translateY(20px); /* Start slightly below */
+	animation: bubble-in 0.3s forwards ease-out; /* Apply the animation */
+}
+@keyframes bubble-in {
+	to {
+		opacity: 1;
+		transform: translateY(0); /* Move to original position */
+	}
+}
+
+.chat-date {
+	/* @apply flex h-[50px] w-full items-center justify-center text-center !font-bold !text-white; */
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-weight: 700;
+	color: #fff;
+	margin: 20px 0;
+}
+
+/* ::before and ::after are used to create a line on both sides of the date */
+.chat-date::before,
+.chat-date::after {
+	content: "";
+	border-bottom: 1px solid #fff;
+	width: 20%;
+	/* spacing */
+	margin: 0 10px;
+}
+
+.b_modal.keyboard-open {
+	bottom: 200px; /* Adjust based on the height of the keyboard */
+}
+
+.flip-container {
+	perspective: 1000px;
+	width: 160px;
+	height: 250px;
+}
+
+.flip-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+}
+
+.flip-container:hover .flip-inner {
+	transform: rotateY(180deg);
+}
+
+.flipped .flip-inner {
+	transform: rotateY(180deg) !important;
+}
+
+.flipped-reverse .flip-inner {
+	transform: rotateY(0deg) !important;
+}
+
+.flip-front,
+.flip-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.flip-front {
+	/* Profile side */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flip-back {
+	/* NFT side */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: rotateY(180deg);
+}
+
+@font-face {
+	font-family: "CircularStd";
+	src: url("../fonts/circular/CircularStd-Bold.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CircularStd";
+	src: url("../fonts/circular/CircularStd-Medium.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CircularStd";
+	src: url("../fonts/circular/CircularStd-Medium.ttf") format("truetype");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CircularStd";
+	src: url("../fonts/circular/CircularStd-Book.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CircularStd";
+	src: url("../fonts/circular/CircularStd-Book.ttf") format("truetype");
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: "CircularStd";
+	src: url("../fonts/circular/CircularStd-Book.ttf") format("truetype");
+	font-weight: 200;
+	font-style: normal;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+/* Firefox specific */
+input[type="number"] {
+	appearance: none;
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+	color: #adb5bd;
+	content: attr(data-placeholder);
+	float: left;
+	height: 0;
+	pointer-events: none;
+}
+
+p {
+	@apply font-circular;
+}
+span {
+	@apply font-circular;
+}
+h4 {
+	@apply font-circular;
+}
+h5 {
+	@apply font-circular;
+}
+h6 {
+	@apply font-circular;
+}
+
+p:has(> a) {
+	@apply w-fit max-w-[300px] overflow-hidden truncate rounded-lg md:!max-w-[900px];
+}
+
+p > a {
+	@apply rounded-2xl bg-[#FFFFFF1A] px-2 py-1 text-sm !text-lemon-green no-underline;
+}
+
+.react-multi-carousel-list {
+	padding: 0px 10px;
+}
+.react-multi-carousel-dot button {
+	border: none !important;
+	border-color: none !important;
+}
+
+.react-multi-carousel-dot--active button {
+	background: #ccf975 !important;
+}
+
+.react-multiple-carousel__arrow {
+	border: 1px solid #ccf975 !important;
+}
+
+.react-multiple-carousel__arrow--right {
+	right: calc(0% + 1px) !important;
+}
+
+.react-multiple-carousel__arrow--left {
+	left: calc(0% + 1px) !important;
+}
+
+.react-multiple-carousel__arrow::before {
+	color: #ccf975 !important;
+}
+.react-multi-carousel-dot button,
+input:where([type="button"]),
+input:where([type="reset"]),
+input:where([type="submit"]) {
+	-webkit-appearance: button;
+	background-color: #d9d9d966;
+	background-image: none;
+}
+
+@media (max-height: 800px) {
+	.flip-container {
+		height: 200px;
+	}
+
+	.flip-back > img {
+		height: 200px;
+		width: fit-content;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+}
+
+@media (max-height: 500px) {
+	.flip-container {
+		height: 150px;
+	}
+
+	.flip-back > img {
+		height: 200px;
+		width: fit-content;
+		width: 100%;
+		border-radius: 10px;
+	}
+}

@@ -1,0 +1,67 @@
+{
+	"compilerOptions": {
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"module": "esnext",
+		"moduleResolution": "node",
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"strict": true,
+		"alwaysStrict": true,
+		"strictNullChecks": true,
+		"noUncheckedIndexedAccess": true,
+
+		"noImplicitAny": false,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"allowUnreachableCode": false,
+		"noFallthroughCasesInSwitch": true,
+
+		"target": "es2015",
+		"outDir": "out",
+		"sourceMap": true,
+
+		"declaration": true,
+
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"allowJs": true,
+		"checkJs": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+
+		"jsx": "preserve",
+		"noEmit": true,
+		"isolatedModules": true,
+		"incremental": true,
+
+		"allowUnusedLabels": false,
+		"pretty": true,
+		"resolveJsonModule": true,
+
+		// Path aliases
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./*"]
+		},
+		// Editor support
+		"plugins": [
+			{
+				"name": "next"
+			}
+		]
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"next.config.mjs",
+		".prettierrc",
+		".prettierignore",
+		"postcss.config.js",
+		"tailwind.config.ts"
+	],
+	"exclude": ["./out/**/*", "./node_modules/**/*"]
+}
